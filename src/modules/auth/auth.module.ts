@@ -4,7 +4,7 @@ import { PassportModule } from '@nestjs/passport';
 import { GqlAuthGuard } from '../../common/guards/gql-auth.guard';
 import { SECRET_KEY } from '../../constant';
 import { UserModule } from '../user/user.module';
-import { AuthResolver } from './auth.resolve';
+import { AuthResolver } from './auth.resolver';
 import { AuthService } from './auth.service';
 import { JwtStrategy } from './jwt.strategy';
 

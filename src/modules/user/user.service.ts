@@ -1,4 +1,5 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { Args } from '@nestjs/graphql';
 import { InjectRepository } from '@nestjs/typeorm';
 import { hashPassword } from 'src/utils';
 import { MongoRepository } from 'typeorm';
@@ -23,7 +24,7 @@ export class UserService {
         return await this.userRepository.findOne({ email });
     }
 
-    async create(input: CreateUserDto): Promise<boolean> {
+    async create(@Args('input') input: CreateUserDto): Promise<boolean> {
         const { email, password, name } = input;
         const existUser = await this.userRepository.findOne({ email });
 
